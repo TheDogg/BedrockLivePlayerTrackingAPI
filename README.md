@@ -11,6 +11,9 @@ Currently supporting:
 - Unmined Marker File (custom.marker.js)
 
 GET /playerpositions -> Returns all player positions in db
+
 GET /playerpositions/{name}  -> Returns specified player position in db
+
 POST /playerposition  -> Add or Update the specified player position in db
+
 POST /playerpositions  -> Adds an array of Player Positions (**Deletes all existing before**)
