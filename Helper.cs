@@ -17,7 +17,7 @@ namespace DiscordBotTestAPI
             string addPlayerPosition;
             foreach (var playerPosition in playerPositions)
             {
-                addPlayerPosition = "{\"name\": \"" + playerPosition.Name + "\",\"dimensionId\": " + playerPosition.DimensionId + ",\"position\": [" + playerPosition.XCoord + ",70," + playerPosition.ZCoord + "],\"color\": \"" + playerPosition.Color + "\",\"visible\": " + (playerPosition.Visible ? "true" : "false") + "},";
+                addPlayerPosition = "{\"name\": \"" + playerPosition.Name + "\",\"dimensionId\": " + playerPosition.DimensionId + ",\"position\": [" + playerPosition.XCoord + ",70," + playerPosition.ZCoord + "],\"color\": \"Yellow\",\"visible\": " + (playerPosition.Visible ? "true" : "false") + "},";
                 text = text + addPlayerPosition;
             }
 
@@ -29,7 +29,7 @@ namespace DiscordBotTestAPI
         public static async void WriteUnminedPlayerPositionsFile(PlayerPositionsDb db)
         {
             var filePath = config["UnminedPlayerPositionsFile"];
-            var text = "UnminedCustomMarkers = {isEnabled: true,markers: [";
+            var text = "UnminedCustomPlayersPositions = {isEnabled: true,players: [";
 
             var playerPositions = await db.PlayerPositions.ToListAsync();
             string addPlayerPosition;
@@ -39,7 +39,7 @@ namespace DiscordBotTestAPI
                 {
                     break;
                 }
-                addPlayerPosition = "{x: " + playerPosition.XCoord + ",z: " + playerPosition.ZCoord + ",image: \"custom.pin.png\",imageAnchor: [0.5, 1],imageScale: 0.25,text: \"" + playerPosition.Name + "\",textColor: \"" + playerPosition.Color + "\", offsetX: 0,offsetY: 10,font: \"bold 18px Calibri, sans serif\",},";
+                addPlayerPosition = "{x: " + playerPosition.XCoord + ",z: " + playerPosition.ZCoord + ",image: \"custom.pin.png\",imageAnchor: [0.5, 1],imageScale: 0.25,text: \"" + playerPosition.Name + "\",textColor: \"Yellow\", offsetX: 0,offsetY: 10,font: \"bold 18px Calibri, sans serif\",},";
 
                 text += addPlayerPosition;
             }
